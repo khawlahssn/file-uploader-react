@@ -2,7 +2,6 @@
 
 1. ```npm install```
 2. ```npx nodemon server.js```
-3. ```cd src```
-4. ```npm start```
+3. ```npm start```
 
 I've only done slight modifications to the original code, [here](https://github.com/bradtraversy/react_file_uploader).
