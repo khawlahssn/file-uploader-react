@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { useState } from 'react';
 import Message from './components/Message';
+import { Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
   const [file, setFile] = useState('');
-  const [filename, setFilename] = useState('Choose File');
+  const [filename, setFilename] = useState('Choose File...');
   const [message, setMessage] = useState('');
   const [uploadedFile, setUploadedFile] = useState({});
 
@@ -32,7 +34,8 @@ function App() {
       const { fileName, filePath } = res.data;
       setUploadedFile({ fileName, filePath });
 
-      setMessage('File Uploaded');
+      setMessage('File Uploaded ✅');
+
     } catch (err) {
       if (err.response.status === 500) {
         setMessage('There was a problem with the server');
@@ -40,30 +43,21 @@ function App() {
         setMessage(err.response.data.msg);
       }
     }
-  }
+  };
 
   return (
     <div className="App">
+      <h1>Start Uploading Files! 📥</h1>
       {message ? <Message msg={message} /> : null}
       <form onSubmit={onSubmit}>
-        <div>
-          <input
-            type='file'
-            onChange={onChange}
-          />
-          <label>
-            {filename}
-          </label>
+        <div className="upload-area">
+          <input type="file" className="form-control item1" onChange={onChange} />
+          <Button type="submit" variant="primary" className="upload-bttn item2">Upload</Button>{' '}
         </div>
-
-        <input
-          type='submit'
-          value='Upload'
-        />
       </form>
       {uploadedFile ? (
         <div>
-            <h3> {uploadedFile.fileName} </h3>
+          <h3> {filename} </h3>
         </div>
       ) : null}
     </div>

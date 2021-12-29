@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+h1 {
+  margin: 20px;
+}
+
+.upload-bttn {
+  width: 200px;
+}
+
+.upload-area {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 30px;
+}
