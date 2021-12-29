@@ -62,7 +62,7 @@ function App() {
         />
       </form>
       {uploadedFile ? (
-        <div className='row mt-5'>
+        <div>
             <h3> {uploadedFile.fileName} </h3>
         </div>
       ) : null}
